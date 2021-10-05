@@ -17,7 +17,7 @@ import java.io.File;
  */
 public final class ClientCommands
 {
-    public static final String OPEN_COMPUTER = "/computercraft open-computer ";
+    public static final String OPEN_COMPUTER = "/cc open-computer ";
 
     private ClientCommands()
     {

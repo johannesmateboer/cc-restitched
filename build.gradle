@@ -1,7 +1,7 @@
 plugins {
     id 'fabric-loom' version '0.7-SNAPSHOT'
     id 'maven-publish'
-    id "checkstyle"
+    // id "checkstyle"
     id "com.github.hierynomus.license" version "0.15.0"
 }
 
@@ -15,7 +15,7 @@ java {
 version = mod_version
 
 group = "dan200.computercraft"
-archivesBaseName = "cc-restiched"
+archivesBaseName = "cc-restiched-exp"
 
 repositories {
     mavenCentral()
@@ -32,7 +32,7 @@ configurations {
 }
 
 dependencies {
-    checkstyle "com.puppycrawl.tools:checkstyle:8.25"
+    //checkstyle "com.puppycrawl.tools:checkstyle:8.25"
 
     minecraft "com.mojang:minecraft:${mc_version}"
     mappings "net.fabricmc:yarn:${mc_version}+build.${mappings_version}:v2"
@@ -136,23 +136,3 @@ task licenseFormatAPI(type: LicenseFormat);
     }
 }
 
-// configure the maven publication
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            // add all the jars that should be included when publishing to maven
-            artifact(remapJar) {
-                builtBy remapJar
-            }
-            artifact(sourcesJar) {
-                builtBy remapSourcesJar
-            }
-        }
-    }
-
-    // select the repositories you want to publish to
-    repositories {
-        // uncomment to publish to the local maven
-        // mavenLocal()
-    }
-}

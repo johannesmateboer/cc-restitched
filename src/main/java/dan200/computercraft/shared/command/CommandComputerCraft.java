@@ -68,7 +68,7 @@ public final class CommandComputerCraft
 
     public static void register( CommandDispatcher<ServerCommandSource> dispatcher, Boolean dedicated )
     {
-        dispatcher.register( choice( "computercraft" )
+        dispatcher.register( choice( "cc" )
             .then( literal( "dump" )
                 .requires( UserLevel.OWNER_OP )
                 .executes( context -> {
@@ -257,7 +257,7 @@ public final class CommandComputerCraft
                     .executes( context -> {
                         getTimingContext( context.getSource() ).start();
 
-                        String stopCommand = "/computercraft track stop";
+                        String stopCommand = "/cc track stop";
                         context.getSource().sendFeedback( translate( "commands.computercraft.track.start.stop",
                             link( text( stopCommand ), stopCommand, translate( "commands.computercraft.track.stop.action" ) ) ), false );
                         return 1;
@@ -305,7 +305,7 @@ public final class CommandComputerCraft
         {
             out.append( link(
                 text( Integer.toString( serverComputer.getInstanceID() ) ),
-                "/computercraft dump " + serverComputer.getInstanceID(),
+                "/cc dump " + serverComputer.getInstanceID(),
                 translate( "commands.computercraft.dump.action" )
             ) );
         }
@@ -320,13 +320,13 @@ public final class CommandComputerCraft
                 .append( " " )
                 .append( link(
                     text( "\u261b" ),
-                    "/computercraft tp " + serverComputer.getInstanceID(),
+                    "/cc tp " + serverComputer.getInstanceID(),
                     translate( "commands.computercraft.tp.action" )
                 ) )
                 .append( " " )
                 .append( link(
                     text( "\u20e2" ),
-                    "/computercraft view " + serverComputer.getInstanceID(),
+                    "/cc view " + serverComputer.getInstanceID(),
                     translate( "commands.computercraft.view.action" )
                 ) );
         }
@@ -346,7 +346,7 @@ public final class CommandComputerCraft
         {
             return link(
                 position( computer.getPosition() ),
-                "/computercraft tp " + computer.getInstanceID(),
+                "/cc tp " + computer.getInstanceID(),
                 translate( "commands.computercraft.tp.action" )
             );
         }
